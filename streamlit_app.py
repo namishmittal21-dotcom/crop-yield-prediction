@@ -107,8 +107,9 @@ with tab_predict:
         diff = (r["estimate"] - r["history"]) / r["history"] * 100
         delta = f"{diff:+.0f}% vs real median ({r['history']:,.2f})"
     c[0].metric(f"Estimated yield ({unit} per hectare)", f"{r['estimate']:,.2f}", delta, delta_color="off")
-    c[1].metric(f"Estimated production on {r['area']:,.1f} ha", f"{r['production']:,.1f} {unit}")
-    c[2].metric("80% range (spread of the forest's trees)", f"{r['low']:,.2f} – {r['high']:,.2f}")
+    c[1].metric(f"Estimated production ({unit}) on {r['area']:,.0f} ha", f"{r['production']:,.0f}")
+    c[2].metric(f"80% range ({unit} per hectare)", f"{r['low']:,.2f} – {r['high']:,.2f}",
+                help="10th–90th percentile of the answers from the forest's individual trees")
     notes = []
     if r["history"]:
         notes.append(f"Real median yield for {s.crop} in {s.state}, 1997–2020: **{r['history']:,.2f} {unit}/ha**.")

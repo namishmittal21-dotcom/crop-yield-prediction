@@ -3,7 +3,7 @@
 Predict the yield (per hectare) and total production of **55 crops across 30 Indian states**, using a Random Forest
 trained on **19,689 real crop records**, **soil nutrients (N, P, K, pH)** and **24 years of weather data**.
 
-**▶ Try it online (no install):** *link added once the website is deployed*
+**▶ Try it online (no install):** [namish-crop-yield-prediction.streamlit.app](https://namish-crop-yield-prediction.streamlit.app)
 
 ![Feature importance](outputs/feature_importance.png)
 
