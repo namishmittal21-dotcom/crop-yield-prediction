@@ -22,10 +22,8 @@ echo Installing / checking packages - the first run takes a few minutes...
 if errorlevel 1 goto :fail
 
 echo.
-echo Starting the app. It opens in your browser at http://127.0.0.1:7860
-echo Keep this window open while you use the app. Close it to stop the app.
-echo.
-".venv\Scripts\python.exe" app.py
+echo Starting the app - it opens in your browser by itself in a few seconds...
+".venv\Scripts\python.exe" launch.py
 pause
 exit /b 0
 

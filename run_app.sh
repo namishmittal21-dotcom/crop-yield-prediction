@@ -22,5 +22,5 @@ echo "Installing / checking packages (the first run takes a few minutes)..."
 .venv/bin/python -m pip install --disable-pip-version-check -q -r requirements.txt
 
 echo
-echo "Starting the app. It opens in your browser at http://127.0.0.1:7860 (press Ctrl+C to stop)."
-exec .venv/bin/python app.py
+echo "Starting the app - it opens in your browser by itself in a few seconds (press Ctrl+C to stop)..."
+exec .venv/bin/python launch.py

@@ -26,7 +26,7 @@ You only need **[Python 3.12 or newer](https://www.python.org/downloads/)** (on 
 2. Start the app:
    * **Windows:** double-click **`run_app.bat`**
    * **macOS / Linux:** open a terminal in the folder and run `./run_app.sh`
-3. The app opens in your browser at http://127.0.0.1:7860.
+3. The app opens in your browser by itself (at http://127.0.0.1:8501). It is the same app as the website, running on your computer.
 
 The first run creates a private Python environment in a `.venv` folder (so it never clashes with other Python projects),
 installs the tested package versions and trains the model. This takes a few minutes; later runs start in seconds.
@@ -44,8 +44,8 @@ python -m venv .venv
 # Windows: .venv\Scripts\activate     macOS/Linux: source .venv/bin/activate
 pip install -r requirements.txt          # app only
 pip install -r requirements-notebook.txt # app + notebook
-python app.py                            # local app (Gradio)
-streamlit run streamlit_app.py           # same app as the website (Streamlit)
+python launch.py                         # the app (same as the website), opens your browser
+python app.py                            # alternative Gradio version of the app
 ```
 </details>
 
@@ -103,7 +103,8 @@ Predicting unseen years (train 1997–2016, test 2017–2020): **R² = 0.951**.
 
 ```
 streamlit_app.py           Web app hosted online (Streamlit Community Cloud)
-app.py                     Local web app (Gradio), opened by run_app.bat / run_app.sh
+launch.py                  Starts streamlit_app.py locally and opens the browser (used by run_app.bat / .sh)
+app.py                     Alternative local version of the app built with Gradio
 crop_model.py              Shared model code: loads data, trains or loads the model, predicts with a range
 Crops_Prediction.ipynb     Full analysis: data, EDA, 5-model comparison, tuning, feature importance
 data/                      Crop records, soil table, weather table and weather coordinates
