@@ -1,7 +1,7 @@
 # Publishes the web app to a Hugging Face Space every time `main` changes.
-# One-time setup (repo Settings -> Secrets and variables -> Actions):
-#   secret   HF_TOKEN  = a Hugging Face access token with "write" permission
-#   variable HF_SPACE  = <your-hf-username>/crop-yield-prediction
+# One-time setup: repo Settings -> Secrets and variables -> Actions -> New repository secret
+#   HF_TOKEN = a Hugging Face access token with "write" permission
+# To deploy to a different Space, change HF_SPACE below.
 name: Deploy to Hugging Face Spaces
 
 on:
@@ -9,10 +9,12 @@ on:
     branches: [main]
   workflow_dispatch:
 
+env:
+  HF_SPACE: NamishMittal21/crop-yield-prediction
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    if: ${{ vars.HF_SPACE != '' }}
     steps:
       - uses: actions/checkout@v4
 
@@ -29,8 +31,11 @@ jobs:
       - name: Upload to Hugging Face
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
-          HF_SPACE: ${{ vars.HF_SPACE }}
         run: |
+          if [ -z "$HF_TOKEN" ]; then
+            echo "::warning::HF_TOKEN secret is not set, so the Hugging Face deploy was skipped."
+            exit 0
+          fi
           pip install --quiet "huggingface_hub>=0.30"
           python - <<'PY'
           import os

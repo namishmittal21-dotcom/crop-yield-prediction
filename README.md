@@ -3,7 +3,7 @@
 Predict the yield (per hectare) and total production of **55 crops across 30 Indian states**, using a Random Forest
 trained on **19,689 real crop records**, **soil nutrients (N, P, K, pH)** and **24 years of weather data**.
 
-**▶ Try it online (no install):** *the public link is added here once the Hugging Face Space is live*
+**▶ Try it online (no install):** [huggingface.co/spaces/NamishMittal21/crop-yield-prediction](https://huggingface.co/spaces/NamishMittal21/crop-yield-prediction)
 
 ![Feature importance](outputs/feature_importance.png)
 
