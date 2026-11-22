@@ -3,7 +3,7 @@
 Predict the yield (per hectare) and total production of **55 crops across 30 Indian states**, using a Random Forest
 trained on **19,689 real crop records**, **soil nutrients (N, P, K, pH)** and **24 years of weather data**.
 
-**▶ Try it online (no install):** [huggingface.co/spaces/NamishMittal21/crop-yield-prediction](https://huggingface.co/spaces/NamishMittal21/crop-yield-prediction)
+**▶ Try it online (no install):** *link added once the website is deployed*
 
 ![Feature importance](outputs/feature_importance.png)
 
@@ -14,6 +14,7 @@ trained on **19,689 real crop records**, **soil nutrients (N, P, K, pH)** and **
 * **Explainable**: feature-importance charts and a study of what each data source adds
 * **Prediction with an 80% confidence range**, compared with the real historical yield for that crop and state
 * **Web app** with four tabs: Predict · Model comparison · Feature importance · Data & method
+  (online version built with Streamlit; local version built with Gradio, both using the same model code)
 * **Full analysis notebook** with exploratory charts, tuning, error by crop and a future-years test
 
 ## Run it on your computer
@@ -43,7 +44,8 @@ python -m venv .venv
 # Windows: .venv\Scripts\activate     macOS/Linux: source .venv/bin/activate
 pip install -r requirements.txt          # app only
 pip install -r requirements-notebook.txt # app + notebook
-python app.py
+python app.py                            # local app (Gradio)
+streamlit run streamlit_app.py           # same app as the website (Streamlit)
 ```
 </details>
 
@@ -100,14 +102,16 @@ Predicting unseen years (train 1997–2016, test 2017–2020): **R² = 0.951**.
 ## Project structure
 
 ```
-app.py                     Gradio web app (trains the model automatically on first run)
+streamlit_app.py           Web app hosted online (Streamlit Community Cloud)
+app.py                     Local web app (Gradio), opened by run_app.bat / run_app.sh
+crop_model.py              Shared model code: loads data, trains or loads the model, predicts with a range
 Crops_Prediction.ipynb     Full analysis: data, EDA, 5-model comparison, tuning, feature importance
 data/                      Crop records, soil table, weather table and weather coordinates
 outputs/                   Result tables and charts
 run_app.bat / run_app.sh   One-click setup and launch
 open_notebook.bat / .sh    One-click notebook
 requirements*.txt          Tested package versions
-.github/workflows/         Auto-deploy to Hugging Face Spaces
+.streamlit/config.toml     Website theme
 ```
 
 ## Limitations
