@@ -1,0 +1,5 @@
+# Extra packages to open and re-run the analysis notebook
+-r requirements.txt
+matplotlib==3.11.2
+seaborn==0.13.2
+notebook

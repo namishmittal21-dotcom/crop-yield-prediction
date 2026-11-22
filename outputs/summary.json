@@ -1,0 +1,7 @@
+{
+  "final_model": "Random Forest",
+  "final_test_r2": 0.9727982176605815,
+  "final_test_mae": 0.10318811896602287,
+  "final_test_r2_orig": 0.9665525886741577,
+  "future_r2": 0.9507044723814797
+}

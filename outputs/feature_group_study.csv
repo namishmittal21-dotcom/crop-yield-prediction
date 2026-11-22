@@ -1,0 +1,7 @@
+Feature set,CV R²
+Crop + season + farm inputs only,0.9248296951118589
++ State name,0.9582672379993046
+"+ Soil (N, P, K, pH)",0.9614580052501538
++ Weather,0.9482216733401477
++ Soil + Weather  (final model),0.9588926546667682
++ Soil + Weather + State name,0.9593497540823137
