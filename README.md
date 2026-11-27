@@ -123,4 +123,4 @@ Estimates are for learning and comparison, not agronomic advice.
 
 ## License
 
-Code: MIT (see `LICENSE`). Datasets remain under the terms of their original sources.
+Code: Copyright (c) 2026 Namish Mittal. All rights reserved (see LICENSE). Datasets remain under the terms of their original sources.
